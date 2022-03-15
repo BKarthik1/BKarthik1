@@ -1,0 +1,66 @@
+
+ 
+using System;
+public abstract class vehicle
+{
+ public string make;
+ public string power_capacity;
+ public string colour;
+ public vehicle(string m,string p,string c)
+ {
+ make = m;
+ power_capacity = p;
+ colour = c;
+ }
+ public virtual void display()
+ {
+ Console.WriteLine("Brand:" + make);
+ Console.WriteLine("power capacity:" + power_capacity);
+ Console.WriteLine("colour:" + colour);
+ 
+ }
+ public class twowheeler : vehicle
+ {
+ public string battery;
+ public twowheeler(string m, string p, string c, string b) : base(m, p, c)
+ {
+ battery = b;
+ }
+ public override void display()
+ {
+ Console.WriteLine("Two wheeler Features ");
+ Console.WriteLine("Brand :" + make);
+ Console.WriteLine("power capacity :" +power_capacity);
+ Console.WriteLine("colour:" + colour);
+ Console.WriteLine("Battery model:" + battery);
+ }
+ public class fourwheeler : vehicle
+ {
+ public string seating_capacity;
+ public fourwheeler(string m, string p, string c, string s) : base(m, p, 
+c)
+ {
+ seating_capacity = s;
+ }
+ public override void display()
+ {
+ Console.WriteLine("Four wheeler features:");
+ Console.WriteLine("Brand :" + make);
+ Console.WriteLine("power capacity :" + power_capacity);
+ Console.WriteLine("colour:" + colour);
+ Console.WriteLine("seating capacity:" + seating_capacity);
+ }
+
+ public static void Main(string[] args)
+ {
+ twowheeler t = new twowheeler("MT15", "Two hundred CC", "Blue", 
+"Delmax pro");
+ fourwheeler f = new fourwheeler("Range rover", "Ninty ninty rmp",
+ "Red", "Seven");
+ f.display();
+ }
+ }
+ }
+}
+
+ 
