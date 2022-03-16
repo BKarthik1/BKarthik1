@@ -1,0 +1,86 @@
+using System;
+
+
+
+interface Iprintable
+
+{
+    void printshape();
+}
+
+
+public class shape
+
+{
+
+    public string bg_color;
+
+    public string pen_color;
+    public string penwidth;
+
+    public string member_one;
+
+    public string member_two;
+
+    public string member_three;
+
+
+    public shape(string bg, string pc, string pw)
+    {
+
+        bg_color = bg;
+
+        pen_color = pc;
+
+        penwidth = pw;
+    }
+    public void draw(string b, string p, string pe)
+    {
+        member_one = p;
+        member_two = p;
+        member_three = pe;
+
+        Console.WriteLine("Data members of shape class:");
+        Console.WriteLine(member_one);
+        Console.WriteLine(member_two);
+        Console.WriteLine(member_three);
+    }
+
+
+
+
+    public void printshape()
+    {
+        Console.WriteLine("\nThe background colour is :" + bg_color);
+        Console.WriteLine("The pen colour is :" + pen_color);
+        Console.WriteLine("The pen width is :" + penwidth);
+    }
+    class main
+    {
+        static void Main(string[] args)
+        {
+            shape s = new shape("Green", "Blue", "two units");
+            s.draw("Background colour", "pen colour", "pen width");
+            s.printshape();
+        }
+
+
+
+
+    }
+
+}
+
+
+
+Output
+
+Data members of shape class:
+pen colour
+pen colour
+pen width
+
+The background colour is :Green
+The pen colour is :Blue
+The pen width is :two units
+Press any key to continue . . .
