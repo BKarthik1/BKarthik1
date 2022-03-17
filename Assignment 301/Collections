@@ -1,0 +1,102 @@
+Source Code
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+    class Payroll
+    {
+        static void Main(string[] args)
+        {
+            List<Employee> employees  = new List<Employee>();
+            employees.Add(new ContractEmployee()
+            {
+                Id = 1,
+                Name = "Srija",
+                PerDayPay = 1550,
+                NoOfWorkDays = 25
+
+            });
+            employees.Add(new permanentEmployee()
+            {
+                Id = 2,
+                Name = "Aruna",
+                HRA = 17000,
+                DA = 27000
+
+            });
+        foreach (Employee emp in employees)
+        {
+            emp.printpay();
+            }
+       
+        }
+    }
+    public class Namecomparer:IComparer<Employee>
+    {
+        public int Compare(Employee x, Employee y)
+        {
+            return x.Name.CompareTo(y.Name);
+        }
+    }
+    public class PSIDComparer:IComparer<Employee>
+    {
+        public int Compare(Employee x, Employee y)
+        {
+            if(x.Id<y.Id)
+                return -1;
+            else if(x.Id<y.Id)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+    public class Employee
+    {
+        public int Id { get; set; } 
+        public string Name { get; set; }
+        public virtual void printpay()
+        {
+
+        }
+    }
+    public class ContractEmployee : Employee
+    {
+        public int PerDayPay { get; set; }
+        public int NoOfWorkDays { get; set; }
+
+        public override void printpay()
+        {
+            int gross = PerDayPay * NoOfWorkDays;
+            Console.WriteLine("Contract Employee Pay:" + gross);
+
+        }
+    }
+    public class permanentEmployee : Employee
+    {
+        public int HRA { get; set; }
+
+        public int DA { get; set; }
+
+        public override void printpay()
+        {
+        int gross = HRA + DA;
+                Console.WriteLine("Permanent Employee Pay:" + gross);
+
+        }
+    }
+
+OUTPUT
+
+
+Contract Employee Pay:38750
+Permanent Employee Pay:44000
+Press any key to continue . . .
